@@ -1,6 +1,7 @@
 :root {
   --color-white: #fff;
   --color-black: #000;
+  --color-orange: #f06028;
   --color-red: #f7382c;
   --color-red-text: #e26035;
   --color-gray: #e0e0e0;
@@ -46,6 +47,7 @@ body {
   margin-right: auto;
   padding-left: 12px;
   padding-right: 12px;
+  position: relative;
 }
 
 .sum__container > div:first-child {
@@ -282,14 +284,16 @@ body {
 
 .sum__suggestion > ul {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin-bottom: 20px;
+  animation: fadeInFromBelow 0.75s ease;
 }
 
-.sum__suggestion > ul > li {
+.sum__suggestion > ul > li > a {
   width: 120px;
   height: 110px;
   display: flex;
@@ -298,9 +302,15 @@ body {
   align-items: center;
   margin: 0;
   padding: 0;
+  text-decoration: none;
+  color: var(--color-black);
 }
 
-.sum__suggestion > ul > li > div:first-of-type {
+.sum__suggestion > ul > li > a :hover {
+  cursor: pointer;
+}
+
+.sum__suggestion > ul > li > a > div:first-of-type {
   width: 100.62px;
   height: 56.5px;
   background-image: url("../images/plate.png");
@@ -313,11 +323,11 @@ body {
   border: 1px solid var(--color-black);
 }
 
-.sum__suggestion > ul > li > div:first-of-type > span:first-of-type {
+.sum__suggestion > ul > li > a > div:first-of-type > span:first-of-type {
   font-size: 20px;
 }
 
-.sum__suggestion > ul > li > div:first-of-type > span:last-of-type {
+.sum__suggestion > ul > li > a > div:first-of-type > span:last-of-type {
   position: absolute;
   bottom: 3%;
   left: 0;
@@ -326,7 +336,7 @@ body {
   text-align: center;
 }
 
-.sum__suggestion > ul > li > div:nth-of-type(2) {
+.sum__suggestion > ul > li > a > div:nth-of-type(2) {
   width: 119.2px;
   height: 62.7px;
   border: 1px solid var(--color-gray-border);
@@ -337,21 +347,25 @@ body {
   margin-top: -32px;
 }
 
-.sum__suggestion > ul > li > div:nth-of-type(2) > span:first-of-type {
+.sum__suggestion > ul > li > a :hover > div:nth-of-type(2) {
+  background-color: var(--color-orange);
+}
+
+.sum__suggestion > ul > li > a > div:nth-of-type(2) > span:first-of-type {
   font-size: 12px;
   line-height: 14px;
   text-align: center;
   font-weight: 500;
 }
 
-.sum__suggestion > ul > li > div:nth-of-type(2) > span:last-of-type {
+.sum__suggestion > ul > li > a > div:nth-of-type(2) > span:last-of-type {
   font-size: 10px;
   line-height: 12px;
   text-align: center;
   position: relative;
 }
 
-.sum__suggestion > ul > li > div:nth-of-type(2) > span:last-of-type::after {
+.sum__suggestion > ul > li > a > div:nth-of-type(2) > span:last-of-type::after {
   content: "";
   display: block;
   width: 20px;
@@ -375,6 +389,13 @@ body {
   align-items: center;
 }
 
+@media (min-width: 375px) {
+  .sum__suggestion > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
 @media (min-width: 480px) {
   .sum__suggestion > ul {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -395,41 +416,41 @@ body {
     gap: 24px;
   }
 
-  .sum__suggestion > ul > li {
+  .sum__suggestion > ul > li > a {
     width: 180px;
     height: 166px;
   }
 
-  .sum__suggestion > ul > li > div:first-of-type {
+  .sum__suggestion > ul > li > a > div:first-of-type {
     width: 152px;
     height: 85.5px;
   }
 
-  .sum__suggestion > ul > li > div:first-of-type > span:first-of-type {
+  .sum__suggestion > ul > li > a > div:first-of-type > span:first-of-type {
     font-size: 30px;
   }
 
-  .sum__suggestion > ul > li > div:first-of-type > span:last-of-type {
+  .sum__suggestion > ul > li > a > div:first-of-type > span:last-of-type {
     font-size: 12px;
   }
 
-  .sum__suggestion > ul > li > div:nth-of-type(2) {
+  .sum__suggestion > ul > li > a > div:nth-of-type(2) {
     width: 180px;
     height: 95px;
     gap: 8px;
     margin-top: -42px;
   }
 
-  .sum__suggestion > ul > li > div:nth-of-type(2) > span:first-of-type {
+  .sum__suggestion > ul > li > a > div:nth-of-type(2) > span:first-of-type {
     font-size: 18px;
   }
 
-  .sum__suggestion > ul > li > div:nth-of-type(2) > span:last-of-type {
+  .sum__suggestion > ul > li > a > div:nth-of-type(2) > span:last-of-type {
     font-size: 16px;
     line-height: 20px;
   }
 
-  .sum__suggestion > ul > li > div:nth-of-type(2) > span:last-of-type::after {
+  .sum__suggestion > ul > li > a > div:nth-of-type(2) > span:last-of-type::after {
     width: 40px;
     height: 40px;
     right: 0;
@@ -468,7 +489,9 @@ body {
     line-height: 37.5px;
     margin-top: calc(16px + 180px);
     border: 1px solid var(--color-black);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    padding-left: 4px;
+    padding-right: 4px;
   }
 
   .sum__result > span:nth-of-type(2),
@@ -535,6 +558,25 @@ body {
 }
 
 @media (min-width: 1200px) {
+  .sum__container {
+    overflow: visible;
+  }
+
+  .sum__container:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: -60px;
+    right: -60px;
+    height: 1248px;
+    z-index: -1;
+    background-image: url("../images/feng-shui-compass-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.1;
+  }
+
   .sum__suggestion > ul {
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 24px;

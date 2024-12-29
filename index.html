@@ -72,15 +72,17 @@
       </h2>
       <ul>
         <li>
-          <div>
-            <span>9กบ 9999</span>
-            <span>กรุงเทพมหานคร</span>
-          </div>
-          <div>
-            <span>14,000,000</span>
-            <span>ผลรวม 48
-            </span>
-          </div>
+          <a href="#">
+            <div>
+              <span>9กบ 9999</span>
+              <span>กรุงเทพมหานคร</span>
+            </div>
+            <div>
+              <span>14,000,000</span>
+              <span>ผลรวม 48
+              </span>
+            </div>
+          </a>
         </li>
       </ul>
     </section>
@@ -94,10 +96,20 @@
   const ul = document.querySelector('.sum__suggestion > ul');
   const li = ul.querySelector('li');
 
-  for (let i = 0; i < 30; i++) {
-    const newLi = li.cloneNode(true);
-    ul.appendChild(newLi);
+  // Function to generate new items dynamically
+  function generateItems(count = 10) {
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < count; i++) {
+      const newLi = li.cloneNode(true);
+      fragment.appendChild(newLi);
+    }
+
+    ul.appendChild(fragment);
   }
+
+  generateItems(100);
+
 </script>
 
 </html>
