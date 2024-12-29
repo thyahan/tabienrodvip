@@ -142,7 +142,7 @@ body {
   padding: 0;
   margin: 0;
   padding-bottom: 16px;
-  /* background-image: url("../images/feng-shui-compass-sm.png");
+  /* background-image: url("./images/feng-shui-compass-sm.png");
   background-repeat: no-repeat;
   background-size: contain; */
 
@@ -163,7 +163,7 @@ body {
 }
 
 .sum__result-bg {
-  background-image: url("../images/feng-shui-compass-sm.png");
+  background-image: url("./images/feng-shui-compass-sm.png");
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
@@ -260,7 +260,7 @@ body {
 }
 
 .sum__star {
-  background-image: url("../images/star.png");
+  background-image: url("./images/star.png");
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -313,7 +313,7 @@ body {
 .sum__suggestion > ul > li > a > div:first-of-type {
   width: 100.62px;
   height: 56.5px;
-  background-image: url("../images/plate.png");
+  background-image: url("./images/plate.png");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -370,7 +370,7 @@ body {
   display: block;
   width: 20px;
   height: 20px;
-  background-image: url("../images/medal.png");
+  background-image: url("./images/medal.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin-left: auto;
@@ -571,7 +571,7 @@ body {
     right: -60px;
     height: 1248px;
     z-index: -1;
-    background-image: url("../images/feng-shui-compass-bg.png");
+    background-image: url("./images/feng-shui-compass-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.1;
